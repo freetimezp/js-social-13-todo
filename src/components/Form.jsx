@@ -1,10 +1,12 @@
 import React from 'react';
 
+import { BsChevronCompactDown } from 'react-icons/bs';
+
 const Form = () => {
     return (
-        <div className='relative flex flex-col items-center bg-gradient-to-r
-        from-[#9B78FF] to-[#E47AFF] p-10 w-[35rem] mx-auto rounded-b-2xl'>
-            <div className='flex flex-col items-center w-full'>
+        <div className='flex flex-col items-center bg-gradient-to-r
+        from-[#5e88c8] to-[#7dcbef] p-10 pb-3 w-[35rem] rounded-b-2xl'>
+            <div className='flex flex-col items-center w-full gap-3'>
                 <form className='w-full grid grid-cols-12 gap-5'>
                     <input
                         type="text"
@@ -26,6 +28,8 @@ const Form = () => {
                         rows={5}>
                     </textarea>
                 </form>
+
+                <BsChevronCompactDown className='text-3xl text-white cursor-pointer' />
             </div>
         </div>
     );
