@@ -3,9 +3,9 @@ import React from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { RiEditCircleFill } from 'react-icons/ri';
 
-const Cards = () => {
+const Cards = ({ className }) => {
     return (
-        <div className='grid grid-cols-12 absolute top-[25rem] w-[60rem]'>
+        <div className={`${className} grid grid-cols-12 absolute top-[25rem] w-[60rem]`}>
             <div className='col-span-6'>
                 <div className='w-full bg-white bg-opacity-70 flex flex-col 
                 gap-3 p-5 rounded-lg'>
