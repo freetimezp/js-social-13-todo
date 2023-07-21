@@ -8,7 +8,7 @@ import './Home.css';
 import { context } from '../context/Context';
 
 const Home = () => {
-    const { createMode, setCreateMode, title, setTitle, des, setDes } = useContext(context);
+    const { createMode } = useContext(context);
 
     return (
         <div className='w-screen h-screen'>
@@ -19,7 +19,6 @@ const Home = () => {
                 <Form
                     className={`${createMode ? "" : "translate-y-[-16rem]"} 
                                     ease-in-out duration-300 transition-all`}
-                    setCreateMode={setCreateMode}
                 />
                 <Cards
                     className={`${createMode ? "opacity-0" : "translate-y-[-16rem] opacity-100"} 
