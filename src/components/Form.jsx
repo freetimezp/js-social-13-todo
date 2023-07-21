@@ -11,7 +11,10 @@ const Form = ({ className }) => {
         setTitle,
         des,
         setDes,
-        createTodo
+        createTodo,
+        editTodo,
+        goToEditMode,
+        editMode
     } = useContext(context);
 
     return (
@@ -22,7 +25,11 @@ const Form = ({ className }) => {
                     className='w-full grid grid-cols-12 gap-5'
                     onSubmit={(e) => {
                         e.preventDefault();
-                        createTodo();
+                        if (editMode) {
+                            editTodo()
+                        } else {
+                            createTodo();
+                        }
                     }}
                 >
                     <input
@@ -40,7 +47,7 @@ const Form = ({ className }) => {
                         rounded-lg text-white'
                         type='submit'
                     >
-                        Create
+                        {editMode ? 'Update' : 'Create'}
                     </button>
 
                     <textarea className="bg-white border rounded-lg block w-full 

@@ -6,7 +6,7 @@ import { RiEditCircleFill } from 'react-icons/ri';
 import { context } from '../context/Context';
 
 const Cards = ({ className }) => {
-    const { todos, deleteTodo } = useContext(context);
+    const { todos, deleteTodo, id, setId, editTodo, goToEditMode } = useContext(context);
 
     return (
         <div className={`${className} grid grid-cols-12 absolute top-[25rem] w-[60rem] gap-5`}>
@@ -19,8 +19,11 @@ const Cards = ({ className }) => {
                                 {i.title}
                             </h2>
                             <div className='flex gap-2'>
-                                <RiEditCircleFill className='text-2xl text-[#2AB1CE] opacity-80 hover:opacity-100
-                        cursor-pointer hover:scale-105 transition-all duration-300' />
+                                <RiEditCircleFill
+                                    className='text-2xl text-[#2AB1CE] opacity-80 hover:opacity-100
+                                        cursor-pointer hover:scale-105 transition-all duration-300'
+                                    onClick={() => goToEditMode(i)}
+                                />
                                 <AiFillCloseCircle
                                     className='text-2xl text-[#D01010] opacity-80 hover:opacity-100
                                         cursor-pointer hover:scale-105 transition-all duration-300'
