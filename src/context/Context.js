@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import sweetalert from 'sweetalert2';
 
@@ -11,6 +11,8 @@ const ContextProvider = ({ children }) => {
     const [todos, setTodos] = useState([]);
     const [editMode, setEditMode] = useState(false);
     const [id, setId] = useState('');
+
+    const [storeItems, setStoreItems] = useState([]);
 
     const resetStates = () => {
         setId('');
@@ -29,6 +31,9 @@ const ContextProvider = ({ children }) => {
 
         oldTodos.push(newTodo);
         setTodos(oldTodos);
+
+        localStorage.setItem('storeItems', JSON.stringify(oldTodos));
+
         sweetalert.fire('Success', 'Todo Created', 'success');
         resetStates();
     };
@@ -37,6 +42,7 @@ const ContextProvider = ({ children }) => {
         const oldTodos = [...todos];
         const newTodos = oldTodos.filter(i => i.id !== id);
         setTodos(newTodos);
+        localStorage.setItem('storeItems', JSON.stringify(newTodos));
         sweetalert.fire('Deleted success', 'Todo Deleted', 'warning');
         resetStates();
     };
@@ -50,6 +56,9 @@ const ContextProvider = ({ children }) => {
             des: des
         };
         setTodos(oldTodos);
+
+        localStorage.setItem('storeItems', JSON.stringify(oldTodos));
+
         sweetalert.fire('Success', 'Todo Edited', 'success');
 
         resetStates();
@@ -64,6 +73,14 @@ const ContextProvider = ({ children }) => {
         setCreateMode(true);
         setEditMode(true);
     }
+
+    useEffect(() => {
+        const items = JSON.parse(localStorage.getItem('storeItems'));
+
+        if (items) {
+            setTodos(items);
+        }
+    }, []);
 
     return (
         <context.Provider
