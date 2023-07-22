@@ -17,7 +17,7 @@ const Home = () => {
 
             <div className='relative mx-auto flex flex-col items-center justify-between gap-10'>
                 <Form
-                    className={`${createMode ? "" : "translate-y-[-16rem]"} 
+                    className={`${createMode ? "" : "translate-y-[-20.5rem] md:translate-y-[-16rem]"} 
                                     ease-in-out duration-300 transition-all`}
                 />
                 <Cards

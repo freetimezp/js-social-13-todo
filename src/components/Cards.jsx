@@ -9,9 +9,9 @@ const Cards = ({ className }) => {
     const { todos, deleteTodo, id, setId, editTodo, goToEditMode } = useContext(context);
 
     return (
-        <div className={`${className} grid grid-cols-12 absolute top-[25rem] w-[60rem] gap-5`}>
+        <div className={`${className} grid grid-cols-12 absolute top-[25rem] w-[20rem] md:w-[60rem] gap-5`}>
             {todos?.map(i => (
-                <div className='col-span-6' key={i.id}>
+                <div className='col-span-12 md:col-span-6' key={i.id}>
                     <div className='w-full bg-white bg-opacity-70 flex flex-col 
                         gap-3 p-5 rounded-lg'>
                         <div className='flex justify-between'>
